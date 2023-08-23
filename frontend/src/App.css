@@ -1,0 +1,304 @@
+a{
+  text-decoration: none;
+  /* color: white; */
+}
+p{
+  margin: 0;
+  font-size: 15px;
+}
+.row{
+  margin: 0;
+  padding: 0;
+}
+.col-md-10,.col-md-2{
+  margin: 0;
+}
+ul{
+  padding: 0;
+}
+.font{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.marginTOP{
+  margin-top: 40px;
+}
+.marginBottom{
+  margin-bottom: 55px;
+}
+
+/* ---------------------------------------HOMEPAGE-------------------------------- */
+.background{
+  background-image:url(./Images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px 20px;
+}
+.wallpaper{
+  position: relative;
+  z-index: 1;
+}
+.wallepaper-input{
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.settings-icon{
+position: relative;
+z-index: 1;
+}
+.dekstop_icons{
+  height: 50px;
+  width: 50px;
+}
+.create-folder{
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
+  box-shadow: 2px 2px 5px gray;
+}
+.create-folder:hover{
+  color: rgb(25, 116, 212);
+}
+.create-folder:active{
+  border: 1px solid gray;
+}
+.Translator{
+  position:absolute;
+  top: 94.5%;
+  left: 78%;
+}
+.Translator button{
+  padding: 10px 80px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #0072ed;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+/* --------------------------------------Folder page------------------------------- */
+.folder-wrapper{
+  background-color: rgba(55, 54, 54, 0.937);
+  box-shadow: 0.5px 0.5px 0px white ;
+  height: 69px;
+}
+.top{
+  padding: 18px 20px;
+  color: white;
+}
+.navigation-border{
+  border: 0.1px solid white;
+  padding: 5px 0px 5px 50px;
+  /* margin-left:110px ; */
+}
+.home-wrapper{
+  
+  /* margin-right: 10px; */
+}
+.uploadBtn{
+  padding: 4px 50px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: rgb(0,166,237);
+  border: none;
+  color: white;
+}
+.home:active{
+  border: 1px solid black;
+  padding: 4px 4px;
+}
+.home{
+  background-color: #00A6ED;
+  text-align: center;
+  vertical-align:auto;
+  padding: 5px 4px;
+  border-radius: 5px;
+  color: rgb(17, 0, 255);
+}
+.this-pc{
+  padding-left: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.folder-body{
+  background-color: rgb(24, 23, 23);
+  overflow-y: hidden;
+}
+.left-navigation{
+  box-shadow: 1px 0.8px 3px rgb(61, 61, 61);
+}
+.left-content{
+  margin-top: 30px ;
+}
+.left-list{
+  list-style: none;
+  font-size: 17px;
+  color: white;
+
+}
+.left-listItems{
+  margin-bottom: 5px;
+  padding-left: 30px;
+
+}
+.left-listItems:hover{
+  background-color: rgb(81, 78, 78);
+}
+.file-list{
+  /* border-bottom: 1px solid rgba(128, 128, 128, 0.219); */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 5px 2px;
+}
+.file-list:hover{
+  background-color: rgb(81, 78, 78);
+}
+.upload-box{
+  height: 300px;
+  border: 3px dashed gray;
+  background-color: rgba(128, 128, 128, 0.151);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.upload-input{
+  position: relative;
+  height: 300px;
+  width: 400px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+
+}
+.upload-icon{
+  margin-right: 10px;
+  font-size: 1.1em;
+
+}
+.upload-btn{
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+  background-color:rgb(0,166,237) ;
+  border: none;
+  font-size: 1.1em;
+  color: white;
+  font-weight: bold;
+  padding: 0.7em 2.2em;
+  border-radius: 10px;
+}
+.formHorizontal{
+  padding: 30px;
+  margin-bottom: 20px;
+}
+.scrollable{
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.folder-items{
+  padding-top: 2em;
+  color: white;
+  list-style: none;
+  font-size: 1.1em;
+}
+.Delete{
+  float: right;
+  padding: 2px 35px ;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(228, 55, 55);
+}
+/* ---------------------------------------LOGIN/SIGNUP----------------------------------- */
+.login-background{
+  background-image: url(./Images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.modal-dialog{
+  margin-top:10%;
+}
+.modal-footer{
+  justify-content: center;
+}
+.signUP{
+  text-align: center;
+}
+.input-margin-bottom{
+  margin-bottom: 10px;
+}
+
+/* -----------------------------------Side Nav bar-------------------------------------- */
+
+/* ------------------------------MultiLingual API---------------------------------- */
+
+.lingual_wrapper{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.multiLingual_Text{
+  padding: 30px;
+  font-size: 2rem;
+  height: 40%;
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+}
+.language_Select{
+  padding: 10px;
+  font-size: 1.5rem;
+}
+.multiLang_API_wrapper{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:url(./Images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.textbox_wrapper{
+  height: 50%;
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+.textbox{
+  display: flex;
+  height: 80%;
+}
+.source_text{
+  width: 50%;
+  height: 100%;
+}
+.source_text textarea{
+  width: 100%;
+  height: 90%;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  border-right: 1px solid black;
+
+}
+.target_text{
+  width: 50%;
+  height: 100%;
+}
+.target_text textarea{
+  width: 100%;
+  height: 90%;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+
+}
