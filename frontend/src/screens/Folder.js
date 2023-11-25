@@ -51,6 +51,27 @@ function Folder() {
     });
   };
 
+  const downloadImage = async (imageUrl, imageName) => {
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+
+      // Create a download link
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", imageName);
+      document.body.appendChild(link);
+
+      // Trigger the download
+      link.click();
+
+      // Clean up
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error downloading image:", error);
+    }
+  };
   const Delete = (data) => {
     let deleteRef = ref(storage, `${currentUser + "/" + data}`);
     deleteObject(deleteRef).then(() => {
@@ -146,7 +167,7 @@ function Folder() {
                   Url.map((data, index) => {
                     return (
                       <div className="file-list">
-                        <a href={`${data.link}`}>
+                        <a href={`${data.link}`} target="_blank">
                           <li className="left-listItems font ">
                             <BsFillFileTextFill
                               size="20px"
@@ -156,6 +177,14 @@ function Folder() {
                             {data.file}{" "}
                           </li>
                         </a>{" "}
+                        <button
+                          className="download font"
+                          onClick={() => {
+                            downloadImage(data.link, data.file);
+                          }}
+                        >
+                          Download
+                        </button>
                         <button
                           className="Delete font"
                           onClick={() => {
