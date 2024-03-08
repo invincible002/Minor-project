@@ -28,20 +28,25 @@ function Folder() {
     });
   }, []);
   useEffect(() => {
-    listAll(listRef).then((res) => {
-      res.items.forEach(function (itemRef) {
-        setFiles((p) => [...p, itemRef.name.toString()]);
-      });
-    });
+    refresh();
+  }, []);
+  useEffect(() => {
+    refresh();
   }, [listRef]);
 
   useEffect(() => {
     getUrl();
   }, [files]);
 
+  const refresh = () => {
+    listAll(listRef).then((res) => {
+      res.items.forEach(function (itemRef) {
+        setFiles((p) => [...p, itemRef.name.toString()]);
+      });
+    });
+  };
   const getUrl = () => {
     files.map((data, i) => {
-      console.log(data);
       getDownloadURL(ref(storage, `${currentUser + "/" + data}`)).then(
         (url) => {
           let downloadurl = { index: i, link: url, file: data };
@@ -76,16 +81,28 @@ function Folder() {
     let deleteRef = ref(storage, `${currentUser + "/" + data}`);
     deleteObject(deleteRef).then(() => {
       console.log("deleted");
-      window.location.reload(true);
+      setFiles([]);
+      setUrl([]);
+      refresh();
     });
   };
 
   return (
     <>
-      <UploadFile name={showModal} />
+      <UploadFile
+        showModal={showModal}
+        setShowModal={setShowModal}
+        refresh={refresh}
+        setFiles={setFiles}
+        setUrl={setUrl}
+      />
       <div
         className="folder-body"
-        style={{ height: window.innerHeight - 1, width: window.innerWidth }}
+        style={{
+          height: window.innerHeight - 1,
+          width: window.innerWidth,
+          overflowY: "scroll",
+        }}
       >
         <div className="folder-wrapper container-fluid">
           <div className="row top">
@@ -169,6 +186,7 @@ function Folder() {
                       <div className="file-list">
                         <a href={`${data.link}`} target="_blank">
                           <li className="left-listItems font ">
+                            <span style={{ color: "white" }}>{index + 1}</span>
                             <BsFillFileTextFill
                               size="20px"
                               color="rgb(255, 217, 0)"

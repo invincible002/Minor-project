@@ -309,3 +309,28 @@ z-index: 1;
   font-size: 1.5rem;
 
 }
+
+/* media query for folder */
+@media screen and (max-width: 480px) {
+  .folder-wrapper{
+    height: 140px;
+  }
+  .left-navigation{
+    display: none;
+  }
+  .left-listItems{
+    padding-left: 0px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .left-navigation{
+    display: none;
+  }
+  .left-listItems{
+    padding-left: 0px;
+  }
+  .uploadBtn{
+    padding: 2px 40px;
+    margin-left: 0px;
+  }
+}
