@@ -14,14 +14,18 @@ export default function UploadFile(props) {
   const [file, setFile] = useState([]);
 
   const uploadFile = (storageRef, index) => {
-    uploadBytes(storageRef, file).then(() => {
-      if (index == file.length - 1) {
-        alert("File Uploaded");
-        props.setUrl([]);
-        props.setFiles([]);
-        props.refresh();
-      }
-    });
+    uploadBytes(storageRef, file[index])
+      .then(() => {
+        if (index == file.length - 1) {
+          alert("File Uploaded");
+          props.setUrl([]);
+          props.setFiles([]);
+          props.refresh();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   const submissionHandler = () => {
     // console.log("state" + file[0]);

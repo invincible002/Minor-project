@@ -58,21 +58,21 @@ function Folder() {
 
   const downloadImage = async (imageUrl, imageName) => {
     try {
-      const response = await fetch(imageUrl);
-      const blob = await response.blob();
+      const dataRequest = new Request(imageUrl);
+      fetch(dataRequest).then(() => {
+        // Create a download link
+        const link = document.createElement("a");
+        link.href = imageUrl;
+        link.setAttribute("download", imageName);
+        document.body.appendChild(link);
 
-      // Create a download link
-      const url = window.URL.createObjectURL(new Blob([blob]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", imageName);
-      document.body.appendChild(link);
+        // Trigger the download
+        link.click();
 
-      // Trigger the download
-      link.click();
-
-      // Clean up
-      document.body.removeChild(link);
+        // Clean up
+        document.body.removeChild(link);
+      });
+      // const blob = await response.blob();
     } catch (error) {
       console.error("Error downloading image:", error);
     }
