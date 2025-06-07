@@ -29,9 +29,6 @@ function Folder() {
   }, []);
   useEffect(() => {
     refresh();
-  }, []);
-  useEffect(() => {
-    refresh();
   }, [listRef]);
 
   useEffect(() => {
@@ -64,6 +61,7 @@ function Folder() {
         const link = document.createElement("a");
         link.href = imageUrl;
         link.setAttribute("download", imageName);
+        link.target = "_blank";
         document.body.appendChild(link);
 
         // Trigger the download
@@ -115,7 +113,7 @@ function Folder() {
                 </div>
               </Link>
             </div>
-            <div className="col-md-9 navigation-border">
+            <div className="col-md-9 navigation-border home-wrapper">
               <p>
                 <AiFillFolder color="yellow" size={"25px"} />
                 <span className="this-pc">This PC</span> {">"}
@@ -183,34 +181,43 @@ function Folder() {
                 {Url &&
                   Url.map((data, index) => {
                     return (
-                      <div className="file-list">
-                        <a href={`${data.link}`} target="_blank">
-                          <li className="left-listItems font ">
-                            <span style={{ color: "white" }}>{index + 1}</span>
-                            <BsFillFileTextFill
-                              size="20px"
-                              color="rgb(255, 217, 0)"
-                              style={{ marginRight: "8px", marginLeft: "5px" }}
-                            />
-                            {data.file}{" "}
-                          </li>
-                        </a>{" "}
-                        <button
-                          className="download font"
-                          onClick={() => {
-                            downloadImage(data.link, data.file);
-                          }}
-                        >
-                          Download
-                        </button>
-                        <button
-                          className="Delete font"
-                          onClick={() => {
-                            Delete(data.file);
-                          }}
-                        >
-                          Delete
-                        </button>
+                      <div className="file-list row">
+                        <div className="col-md-7">
+                          <a href={`${data.link}`} target="_blank">
+                            <li className="left-listItems font ">
+                              <span style={{ color: "white" }}>
+                                {index + 1}
+                              </span>
+                              <BsFillFileTextFill
+                                size="20px"
+                                color="rgb(255, 217, 0)"
+                                style={{
+                                  marginRight: "8px",
+                                  marginLeft: "5px",
+                                }}
+                              />
+                              {data.file}{" "}
+                            </li>
+                          </a>{" "}
+                        </div>
+                        <div className="col-md-5 action_btns">
+                          <button
+                            className="download font"
+                            onClick={() => {
+                              downloadImage(data.link, data.file);
+                            }}
+                          >
+                            Download
+                          </button>
+                          <button
+                            className="Delete font"
+                            onClick={() => {
+                              Delete(data.file);
+                            }}
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </div>
                     );
                   })}

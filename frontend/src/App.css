@@ -83,20 +83,19 @@ z-index: 1;
 .folder-wrapper{
   background-color: rgba(55, 54, 54, 0.937);
   box-shadow: 0.5px 0.5px 0px white ;
-  height: 69px;
+  /* height: 69px; */
 }
 .top{
-  padding: 18px 20px;
+  padding: 18px 20px 5px 20px;
   color: white;
 }
 .navigation-border{
   border: 0.1px solid white;
-  padding: 5px 0px 5px 50px;
+  padding: 5px 0px 5px 50px !important;
   /* margin-left:110px ; */
 }
 .home-wrapper{
   
-  /* margin-right: 10px; */
 }
 .uploadBtn{
   padding: 4px 50px;
@@ -148,13 +147,16 @@ z-index: 1;
 }
 .file-list{
   /* border-bottom: 1px solid rgba(128, 128, 128, 0.219); */
-  display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
   padding: 5px 2px;
 }
 .file-list:hover{
   background-color: rgb(81, 78, 78);
+}
+.action_btns{
+  display: flex;
+  justify-content: space-around;
 }
 .upload-box{
   height: 300px;
@@ -313,13 +315,23 @@ z-index: 1;
 /* media query for folder */
 @media screen and (max-width: 480px) {
   .folder-wrapper{
-    height: 140px;
+    padding-bottom: 1rem;
   }
   .left-navigation{
     display: none;
   }
   .left-listItems{
     padding-left: 0px;
+  }
+  .home-wrapper{
+    padding: 0px;
+    margin-bottom: 10px;
+  }
+  .home-wrapper button{
+    width: 100%;
+  }
+  .navigation-border{
+    display: none;
   }
 }
 @media screen and (max-width: 1000px) {
